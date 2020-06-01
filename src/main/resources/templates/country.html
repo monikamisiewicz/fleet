@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
   <meta charset="utf-8">
@@ -391,7 +391,7 @@
       <section class="wrapper">
         <div class="row">
           <div class="col-lg-12">
-            <h3 class="page-header"><i class="fa fa fa-bars"></i> Pages</h3>
+            <h3 class="page-header"><i class="fa fa fa-bars"></i> List of Countries</h3>
             <ol class="breadcrumb">
               <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
               <li><i class="fa fa-bars"></i>Pages</li>
@@ -400,7 +400,27 @@
           </div>
         </div>
         <!-- page start-->
-<h1>List of Countries</h1>        <!-- page end-->
+<!--<h1>List of Countries</h1>-->
+
+          <table class="table">
+              <thead>
+              <tr>
+                  <th>Id</th>
+                  <th>Description</th>
+                  <th>Capital</th>
+                  <th>Code</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr th:each="country : ${countries}">
+                  <td th:text="${country.id}"></td>
+                  <td th:text="${country.description}"></td>
+                  <td th:text="${country.capital}"></td>
+                  <td th:text="${country.code}"></td>
+              </tr>
+              </tbody>
+          </table>
+          <!-- page end-->
       </section>
     </section>
     <!--main content end-->
