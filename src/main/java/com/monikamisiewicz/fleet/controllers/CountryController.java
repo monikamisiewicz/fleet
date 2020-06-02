@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -21,6 +22,13 @@ public class CountryController {
         List<Country> countryList = countryService.getCountries();
         model.addAttribute("countries", countryList);
         return "country";
+    }
+
+    @PostMapping("/countries/addNew")
+    public String addNew(Country country) {
+        countryService.save(country);
+        //przekieruje do updated listy krajów
+        return "redirect:/countries ";
     }
 
 }
