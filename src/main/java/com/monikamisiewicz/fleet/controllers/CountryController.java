@@ -5,10 +5,10 @@ import com.monikamisiewicz.fleet.services.CountryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequiredArgsConstructor
@@ -28,6 +28,19 @@ public class CountryController {
     public String addNew(Country country) {
         countryService.save(country);
         //przekieruje do updated listy krajów
+        return "redirect:/countries ";
+    }
+
+    @RequestMapping("countries/findById")
+    @ResponseBody
+    public Optional<Country> findById(int id) {
+        return  countryService.findById(id);
+
+    }
+
+    @RequestMapping(value = "/countries/update", method = {RequestMethod.PUT, RequestMethod.GET})
+    public String update(Country country) {
+        countryService.save(country);
         return "redirect:/countries ";
     }
 

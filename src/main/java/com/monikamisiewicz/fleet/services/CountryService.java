@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -19,5 +20,9 @@ public class CountryService {
 
     public void save(Country country) {
         countryRepository.save(country);
+    }
+
+    public Optional<Country> findById(int id) {
+        return countryRepository.findById(id);
     }
 }
