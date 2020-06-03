@@ -426,6 +426,7 @@
 <!--                         when the editButton is clicked, it's going to launch Modal pop-up - see javascript code country.js-->
 
                          <a  th:href="@{countries/findById/(id=${country.id})}"  class="btn btn-primary" id="editButton" >Edit</a>
+                         <a  th:href="@{countries/delete/(id=${country.id})}"  class="btn btn-danger" id="deleteButton" >Delete</a>
                      </div>
                   </td>
               </tr>
@@ -543,6 +544,26 @@
               <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div class="modal" id="deleteModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title">Confirm delete</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div class="modal-body">
+                  <p>Are you sure you want to delete this record?</p>
+              </div>
+              <div class="modal-footer">
+                  <a class="btn btn-primary" id="confirmDeleteButton" href="">Yes, delete</a>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
               </div>
           </div>
       </div>
