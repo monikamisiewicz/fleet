@@ -28,7 +28,7 @@ public class CountryController {
     public String addNew(Country country) {
         countryService.save(country);
         //przekieruje do updated listy krajów
-        return "redirect:/countries ";
+        return "redirect:/states ";
     }
 
     @RequestMapping("countries/findById")
@@ -41,13 +41,13 @@ public class CountryController {
     @RequestMapping(value = "/countries/update", method = {RequestMethod.PUT, RequestMethod.GET})
     public String update(Country country) {
         countryService.save(country);
-        return "redirect:/countries ";
+        return "redirect:/states ";
     }
 
     @RequestMapping(value = "/countries/delete", method = {RequestMethod.DELETE, RequestMethod.GET})
     public String delete(Integer id) {
         countryService.delete(id);
-        return "redirect:/countries ";
+        return "redirect:/states ";
     }
 
 }

@@ -4,7 +4,7 @@ $('document').ready(function () {
         // prevent going to Json page
         event.preventDefault();
 
-        // /countries/findById/?id=1
+        // /states/findById/?id=1
 
         var href = $(this).attr('href');
 
