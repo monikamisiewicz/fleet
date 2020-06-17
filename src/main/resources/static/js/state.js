@@ -6,8 +6,12 @@ $('document').ready(function () {
 
         // /states/findById/?id=1
 
+        //szuka atrybutu href w tabeli, w buttonie .btn-primary, czyli adres: "@{states/findById/(id=${state.id})}"
         var href = $(this).attr('href');
+        console.log("href: ", href);
 
+        //$ .get () Metoda wykorzystuje żądania HTTP GET, aby pobrać dane z serwera.
+        //$.get(URL,callback);
         $.get(href, function (state, status) {
             $('#idEdit').val(state.id);
             $('#ddlCountryEdit').val(state.countryid);
@@ -15,7 +19,7 @@ $('document').ready(function () {
             $('#codeEdit').val(state.code);
             $('#nameEdit').val(state.name);
             $('#detailsEdit').val(state.details);
-
+        //metoda va(value) ustawia atrybut wartości
         });
 
         $('#editModal').modal();
@@ -25,6 +29,7 @@ $('document').ready(function () {
         event.preventDefault();
 
         var href = $(this).attr('href');
+        console.log("href: ", href);
 
         $.get(href, function (state, status) {
             $('#idDetails').val(state.id);
