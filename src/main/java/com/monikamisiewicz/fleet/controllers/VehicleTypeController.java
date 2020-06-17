@@ -1,13 +1,54 @@
 package com.monikamisiewicz.fleet.controllers;
 
+import com.monikamisiewicz.fleet.models.VehicleType;
+import com.monikamisiewicz.fleet.repositories.VehicleTypeRepository;
+import com.monikamisiewicz.fleet.services.VehicleTypeService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
 
 @Controller
+@RequiredArgsConstructor
 public class VehicleTypeController {
 
+    private final VehicleTypeService vehicleTypeService;
+
     @GetMapping("/vehicleTypes")
-    public String getVehicleTypes() {
+    public String getVehicleTypes(Model model) {
+
+        List<VehicleType> vehicleTypeList = vehicleTypeService.getVehicleTypes();
+        model.addAttribute("vehicleTypes", vehicleTypeList);
+
         return "vehicleType";
+    }
+
+
+    @PostMapping("/vehicleTypes/addNew")
+    public String addNew(VehicleType vehicleType) {
+        vehicleTypeService.save(vehicleType);
+        return "redirect:/vehicleTypes ";
+    }
+
+    @RequestMapping("vehicleTypes/findById")
+    @ResponseBody
+    public Optional<VehicleType> findById(int id) {
+        return vehicleTypeService.findById(id);
+
+    }
+
+    @RequestMapping(value = "/vehicleTypes/update", method = {RequestMethod.PUT, RequestMethod.GET})
+    public String update(VehicleType vehicleType) {
+        vehicleTypeService.save(vehicleType);
+        return "redirect:/vehicleTypes ";
+    }
+
+    @RequestMapping(value = "/vehicleTypes/delete", method = {RequestMethod.DELETE, RequestMethod.GET})
+    public String delete(Integer id) {
+        vehicleTypeService.delete(id);
+        return "redirect:/vehicleTypes ";
     }
 }
