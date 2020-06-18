@@ -34,9 +34,9 @@ public class EmployeeService {
     }
 
     //Get employees by keyword
-    public List<Employee> findByKeyword(String keyword){
-        return employeeRepository.findByKeyword(keyword);
-
-    }
+//    public List<Employee> findByKeyword(String keyword){
+//        return employeeRepository.findByKeyword(keyword);
+//
+//    }
 
 }

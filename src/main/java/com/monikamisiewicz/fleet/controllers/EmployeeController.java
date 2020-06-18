@@ -13,42 +13,54 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class EmployeeController {
 
-    private EmployeeService employeeService;
-    private JobTitleService jobTitleService;
-    private EmployeeTypeService employeeTypeService;
-    private CountryService countryService;
-    private StateService stateService;
+    private final EmployeeService employeeService;
+    private final JobTitleService jobTitleService;
+    private final EmployeeTypeService employeeTypeService;
+    private final CountryService countryService;
+    private final StateService stateService;
 
+
+//    @GetMapping("/employees")
+//    public String getEmployees(Model model, String keyword) {
+//
+//        model.addAttribute("jobTitles", jobTitleService.getJobTitles());
+//        model.addAttribute("employeeTypes", employeeTypeService.getEmployeeTypes());
+//        model.addAttribute("countries", countryService.getCountries());
+//        model.addAttribute("states", stateService.getStates());
+//
+//        if (keyword != null) {
+//            model.addAttribute("employees", employeeService.findByKeyword(keyword));
+//        } else {
+//            model.addAttribute("employees", employeeService.getEmployees());
+//        }
+//
+//        return "employee";
+//    }
+//
+//    @GetMapping("/employeesFiltered")
+//    public String getEmployeesFiltered(Model model, String keyword) {
+//
+//        model.addAttribute("jobTitles", jobTitleService.getJobTitles());
+//        model.addAttribute("employeeTypes", employeeTypeService.getEmployeeTypes());
+//        model.addAttribute("countries", countryService.getCountries());
+//        model.addAttribute("states", stateService.getStates());
+//
+//        model.addAttribute("employees", employeeService.getEmployees());
+//
+//
+//        return "employeeFiltered";
+//    }
 
     @GetMapping("/employees")
-    public String getEmployees(Model model, String keyword) {
-
-        model.addAttribute("jobTitles", jobTitleService.getJobTitles());
-        model.addAttribute("employeeTypes", employeeTypeService.getEmployeeTypes());
-        model.addAttribute("countries", countryService.getCountries());
-        model.addAttribute("states", stateService.getStates());
-
-        if (keyword != null) {
-            model.addAttribute("employees", employeeService.findByKeyword(keyword));
-        } else {
-            model.addAttribute("employees", employeeService.getEmployees());
-        }
-
-        return "Employee";
-    }
-
-    @GetMapping("/employeesFiltered")
-    public String getEmployeesFiltered(Model model, String keyword) {
-
-        model.addAttribute("jobTitles", jobTitleService.getJobTitles());
-        model.addAttribute("employeeTypes", employeeTypeService.getEmployeeTypes());
-        model.addAttribute("countries", countryService.getCountries());
-        model.addAttribute("states", stateService.getStates());
+    public String getEmployees(Model model) {
 
         model.addAttribute("employees", employeeService.getEmployees());
+        model.addAttribute("jobTitles", jobTitleService.getJobTitles());
+        model.addAttribute("employeeTypes", employeeTypeService.getEmployeeTypes());
+        model.addAttribute("countries", countryService.getCountries());
+        model.addAttribute("states", stateService.getStates());
 
-
-        return "EmployeeFiltered";
+        return "employee";
     }
 
 
