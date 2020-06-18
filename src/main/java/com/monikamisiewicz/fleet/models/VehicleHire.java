@@ -16,6 +16,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Data
@@ -33,11 +34,14 @@ public class VehicleHire {
 	@JoinColumn(name="vehicleid", insertable=false, updatable=false)
 	private Vehicle vehicle;
 	private Integer vehicleid;
-	
+
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dateOut;
-	private LocalTime timeOut;
+	private String timeOut;
+
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dateIn;
-	private LocalTime timeIn;
+	private String timeIn;
 	
 	@ManyToOne
 	@JoinColumn(name="clientid", insertable=false, updatable=false)
