@@ -27,7 +27,7 @@ public class VehicleController {
 
         model.addAttribute("vehicles", vehicleService.getVehicles());
         model.addAttribute("locations", locationService.getLocations());
-//        model.addAttribute("employees", employeeService.getEmployees());
+        model.addAttribute("employees", employeeService.getEmployees());
         model.addAttribute("vehicleMakes", vehicleMakeService.getVehicleMakes());
         model.addAttribute("vehicleStatuses", vehicleStatusService.getVehicleStatuses());
         model.addAttribute("vehicleTypes", vehicleTypeService.getVehicleTypes());
