@@ -275,7 +275,6 @@
                                 <img alt="" th:src="@{'/img/photos/' + ${#authentication.getPrincipal().getUsername()} + '.jpg'}" height="38" width="38">
                             </span>
 
-                            <!--/*@thymesVar id="getUsername" type=""*/-->
                             <span class="username" th:text="${#authentication.getPrincipal().getUsername()}">Guest</span>
                             <b class="caret"></b>
                         </a>
