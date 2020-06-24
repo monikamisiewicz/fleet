@@ -14,8 +14,8 @@ import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-@MappedSuperclass
-@EntityListeners(AuditingEntityListener.class)
+@MappedSuperclass //not an entity, tables cannot be created
+@EntityListeners(AuditingEntityListener.class)// Auditable monitors the changes to the fields in this class
 public abstract class Auditable<U> {
 
     @CreatedBy

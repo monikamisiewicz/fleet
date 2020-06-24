@@ -12,7 +12,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 //it tells spring that this object is not an entity(no table), just abstract class,
 //you can only use it to inherit other classes
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-public class CommonObject extends Auditable<String>{
+public class CommonObject extends Auditable<String>{ //Username is String
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
